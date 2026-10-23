@@ -1,0 +1,715 @@
+/* ============================================================
+   FOODBRIDGE OS // CYBER-LOGISTICS DESIGN SYSTEM v3.0
+   Fonts: Space Grotesk (Display) + Outfit (UI) + JetBrains Mono (Telemetry)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-ui: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --bg-void: #050608;
+  --bg-panel: #0a0c10;
+  --bg-glass: rgba(13, 16, 23, 0.78);
+  --bg-elevated: #11151c;
+
+  --border-dim: rgba(255, 255, 255, 0.06);
+  --border-tech: rgba(255, 255, 255, 0.11);
+  --border-active: rgba(0, 245, 155, 0.45);
+
+  --neon-mint: #00f59b;
+  --neon-cyan: #00e5ff;
+  --neon-amber: #ffb800;
+  --neon-crimson: #ff2a5f;
+
+  --text-primary: #f0f4f8;
+  --text-secondary: #8b95a5;
+  --text-muted: #525c6c;
+}
+
+/* 1. HIDE STREAMLIT CHROME & DEPLOY BUTTONS */
+.stDeployButton,
+header[data-testid="stHeader"],
+#MainMenu,
+footer {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 2. GLOBAL CANVAS & TECHNICAL DOT-MATRIX BACKGROUND */
+html, body, .stApp, [class*="css"] {
+  font-family: var(--font-ui) !important;
+  background-color: var(--bg-void) !important;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+  background-color: var(--bg-void) !important;
+  background-image: 
+    radial-gradient(circle at 85% 0%, rgba(0, 245, 155, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(0, 229, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 28px 28px !important;
+}
+
+.block-container {
+  padding-top: 2rem !important;
+  padding-bottom: 3rem !important;
+  max-width: 1320px !important;
+}
+
+/* 3. TYPOGRAPHY & HEADERS */
+h1, h2, h3 {
+  font-family: var(--font-display) !important;
+  color: #ffffff !important;
+  letter-spacing: -0.03em !important;
+  font-weight: 700 !important;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-display) !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.015em !important;
+  font-weight: 600 !important;
+}
+
+p, li, label, [data-testid="stMarkdownContainer"] p {
+  font-family: var(--font-ui) !important;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+[data-testid="stCaptionContainer"], .stCaption {
+  font-family: var(--font-mono) !important;
+  color: var(--text-secondary) !important;
+  font-size: 11.5px !important;
+  letter-spacing: 0.02em;
+}
+
+hr {
+  border-color: var(--border-dim) !important;
+  margin: 1.2rem 0 !important;
+}
+
+/* 4. SIDEBAR COMMAND RAIL */
+[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #060709 0%, #090c10 100%) !important;
+  border-right: 1px solid var(--border-tech) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2 {
+  font-family: var(--font-display) !important;
+  font-size: 20px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase;
+  color: #ffffff !important;
+}
+
+/* 5. INPUT CONTROLS & SELECTORS */
+div[data-baseweb="input"] > div,
+div[data-baseweb="base-input"],
+div[data-baseweb="select"] > div,
+div[data-baseweb="textarea"],
+textarea, input {
+  background: var(--bg-panel) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-tech) !important;
+  border-radius: 8px !important;
+  font-family: var(--font-ui) !important;
+  font-size: 14px !important;
+  transition: all 0.18s ease !important;
+}
+
+div[data-baseweb="input"] > div:focus-within,
+div[data-baseweb="select"] > div:focus-within,
+div[data-baseweb="textarea"]:focus-within {
+  border-color: var(--neon-mint) !important;
+  box-shadow: 0 0 0 2px rgba(0, 245, 155, 0.14) !important;
+  background: #0d1117 !important;
+}
+
+div[data-baseweb="popover"] *, [role="listbox"], [role="option"] {
+  background: #0d1016 !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-ui) !important;
+}
+
+[role="option"]:hover {
+  background: rgba(0, 245, 155, 0.12) !important;
+  color: var(--neon-mint) !important;
+}
+
+[data-testid="stWidgetLabel"] * {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+}
+
+[data-testid="stNumberInput"] button {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-tech) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+  background: var(--bg-panel) !important;
+  border: 1px dashed rgba(0, 245, 155, 0.3) !important;
+  border-radius: 10px !important;
+}
+
+/* 6. TACTICAL BUTTON SYSTEM */
+.stButton > button,
+.stDownloadButton > button,
+[data-testid="stFormSubmitButton"] > button {
+  font-family: var(--font-display) !important;
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-tech) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  letter-spacing: 0.02em !important;
+  padding: 0.55rem 1rem !important;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  border-color: var(--neon-mint) !important;
+  color: var(--neon-mint) !important;
+  background: rgba(0, 245, 155, 0.05) !important;
+  box-shadow: 0 0 18px rgba(0, 245, 155, 0.12) !important;
+  transform: translateY(-1px);
+}
+
+/* Primary Action Button (Cyber Mint) */
+.stButton > button[kind="primary"],
+button[data-testid="stBaseButton-primary"],
+[data-testid="stFormSubmitButton"] > button[kind="primary"] {
+  background: linear-gradient(135deg, #00f59b 0%, #00c8ff 100%) !important;
+  color: #030806 !important;
+  border: none !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  box-shadow: 0 4px 20px rgba(0, 245, 155, 0.22) !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+button[data-testid="stBaseButton-primary"]:hover,
+[data-testid="stFormSubmitButton"] > button[kind="primary"]:hover {
+  box-shadow: 0 6px 28px rgba(0, 245, 155, 0.42) !important;
+  filter: brightness(1.06);
+  color: #000000 !important;
+}
+
+.stButton > button[kind="primary"] *,
+button[data-testid="stBaseButton-primary"] * {
+  color: #030806 !important;
+  font-weight: 700 !important;
+}
+
+/* 7. CONTAINERS, METRICS & EXPANDERS */
+[data-testid="stVerticalBlockBorderWrapper"] {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-tech) !important;
+  border-radius: 12px !important;
+  padding: 18px !important;
+  transition: border-color 0.2s ease;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:hover {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+[data-testid="stMetric"] {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-tech) !important;
+  border-left: 3px solid var(--neon-mint) !important;
+  padding: 16px 18px !important;
+  border-radius: 10px !important;
+}
+
+[data-testid="stMetricValue"] {
+  font-family: var(--font-mono) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 26px !important;
+  letter-spacing: -0.03em !important;
+}
+
+[data-testid="stMetricLabel"] * {
+  font-family: var(--font-mono) !important;
+  color: var(--text-secondary) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+[data-testid="stExpander"] {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-tech) !important;
+  border-radius: 10px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.stTabs [aria-selected="true"] {
+  color: var(--neon-mint) !important;
+}
+
+/* 8. CUSTOM FUTURISTIC COMPONENTS */
+.hero {
+  padding: 44px 48px;
+  border-radius: 16px;
+  margin-bottom: 26px;
+  position: relative;
+  overflow: hidden;
+  background: 
+    linear-gradient(125deg, rgba(10, 15, 22, 0.96) 0%, rgba(7, 25, 20, 0.92) 60%, rgba(5, 38, 32, 0.88) 100%);
+  border: 1px solid rgba(0, 245, 155, 0.28);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero:before {
+  content: "SYS.ONLINE // REAL-TIME SURPLUS DISPATCH ENGINE";
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--neon-mint);
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: var(--font-display) !important;
+  font-size: 46px !important;
+  margin: 0 !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.035em !important;
+}
+
+.hero p {
+  font-size: 16.5px;
+  margin: 10px 0 0;
+  color: #9cb3c9;
+  max-width: 680px;
+}
+
+.ptitle {
+  border-bottom: 1px solid var(--border-dim);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+
+.ptitle h1 {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.01em !important;
+}
+
+.ptitle p {
+  font-family: var(--font-mono) !important;
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  margin: 4px 0 0 !important;
+}
+
+.feature, .card, .stat, .flow-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-tech);
+  border-radius: 12px;
+  padding: 22px;
+  transition: all 0.2s ease;
+}
+
+.feature {
+  border-top: 2px solid var(--neon-mint);
+  min-height: 175px;
+  position: relative;
+}
+
+.feature:hover, .stat:hover, .flow-box:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 245, 155, 0.08);
+  transform: translateY(-2px);
+}
+
+.feature .f-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--neon-mint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.feature h3 {
+  margin: 6px 0 8px !important;
+  color: #ffffff !important;
+  font-size: 18px !important;
+}
+
+.feature p, .flow-box p {
+  color: var(--text-secondary) !important;
+  font-size: 13.5px !important;
+  margin: 0 !important;
+}
+
+.stat {
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-number {
+  font-family: var(--font-mono) !important;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-family: var(--font-mono) !important;
+  color: var(--neon-mint);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.flow-box {
+  text-align: left;
+  min-height: 165px;
+}
+
+.flow-box .n {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  letter-spacing: 0.1em;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.flow-box h4 {
+  margin: 10px 0 6px !important;
+  color: #fff !important;
+  font-size: 15px !important;
+}
+
+/* 9. TELEMETRY BADGES & CALLOUTS */
+.badge {
+  font-family: var(--font-mono) !important;
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 2px 5px 2px 0;
+}
+
+.b-ok {
+  background: rgba(0, 245, 155, 0.1);
+  color: var(--neon-mint);
+  border: 1px solid rgba(0, 245, 155, 0.3);
+}
+
+.b-warn {
+  background: rgba(255, 184, 0, 0.1);
+  color: var(--neon-amber);
+  border: 1px solid rgba(255, 184, 0, 0.3);
+}
+
+.b-bad {
+  background: rgba(255, 42, 95, 0.1);
+  color: var(--neon-crimson);
+  border: 1px solid rgba(255, 42, 95, 0.3);
+}
+
+.b-info {
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.callout {
+  font-family: var(--font-ui);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 10px 0;
+  font-size: 13.5px;
+  border: 1px solid;
+  border-left-width: 3px;
+}
+
+.c-ok {
+  background: rgba(0, 245, 155, 0.06);
+  color: #a7f3d0;
+  border-color: rgba(0, 245, 155, 0.35);
+}
+
+.c-warn {
+  background: rgba(255, 184, 0, 0.06);
+  color: #fde68a;
+  border-color: rgba(255, 184, 0, 0.35);
+}
+
+.c-bad {
+  background: rgba(255, 42, 95, 0.06);
+  color: #fecdd3;
+  border-color: rgba(255, 42, 95, 0.35);
+}
+
+.c-info {
+  background: rgba(0, 229, 255, 0.06);
+  color: #bae6fd;
+  border-color: rgba(0, 229, 255, 0.35);
+}
+
+/* 10. TIMERS, PRICING & PIPELINE TRACKER */
+.timer {
+  font-family: var(--font-mono) !important;
+  background: rgba(255, 184, 0, 0.08);
+  border: 1px solid rgba(255, 184, 0, 0.35);
+  color: var(--neon-amber);
+  border-radius: 8px;
+  padding: 9px 12px;
+  text-align: center;
+  margin: 8px 0;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.timer b {
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.price-old {
+  font-family: var(--font-mono) !important;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.price-new {
+  font-family: var(--font-mono) !important;
+  color: var(--neon-mint);
+  font-weight: 700;
+  font-size: 21px;
+}
+
+.muted {
+  font-family: var(--font-mono) !important;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* Stepper Pipeline */
+.tracker {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0 8px;
+  padding: 12px 8px;
+  background: rgba(255, 255, 255, 0.015);
+  border-radius: 8px;
+  border: 1px solid var(--border-dim);
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.step:not(:last-child):after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 55%;
+  width: 90%;
+  height: 1px;
+  background: #222936;
+}
+
+.step.done:not(:last-child):after {
+  background: var(--neon-mint);
+}
+
+.dot {
+  font-family: var(--font-mono);
+  width: 25px;
+  height: 25px;
+  border-radius: 6px;
+  background: #12161f;
+  border: 1px solid #2b3445;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.step.done .dot {
+  background: var(--neon-mint);
+  border-color: var(--neon-mint);
+  color: #030806;
+}
+
+.step.now .dot {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+}
+
+.slabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* 11. DATA TABLES & TELEMETRY BARS */
+.bars {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-tech);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.brow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.bl {
+  font-family: var(--font-mono);
+  width: 160px;
+  font-size: 12px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bt {
+  flex: 1;
+  background: #141923;
+  border-radius: 4px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.bf {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-mint), var(--neon-cyan));
+  border-radius: 4px;
+}
+
+.bv {
+  font-family: var(--font-mono);
+  width: 85px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--neon-mint);
+  font-size: 12.5px;
+}
+
+.tbl-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-tech);
+  border-radius: 10px;
+}
+
+table.dtbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--bg-panel);
+}
+
+table.dtbl th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #10141d;
+  color: var(--neon-mint);
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-tech);
+  white-space: nowrap;
+}
+
+table.dtbl td {
+  font-family: var(--font-ui);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-dim);
+  color: var(--text-primary);
+}
+
+table.dtbl tr:hover td {
+  background: rgba(0, 245, 155, 0.03);
+}
+
+.bubble {
+  background: #0e121a;
+  border: 1px solid var(--border-tech);
+  border-left: 2px solid var(--neon-cyan);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.bubble b {
+  font-family: var(--font-mono);
+  color: var(--neon-cyan);
+  font-size: 12px;
+}
+
+.footer {
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
